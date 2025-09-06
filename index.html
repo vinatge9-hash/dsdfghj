@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Aroma Cafe | Where Every Sip Tells a Story</title>
+  <meta name='description' content='Aroma Cafe - a modern coffee shop in Nadargul, Telangana. Handcrafted drinks in a warm, friendly, and professional setting.'>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap' rel='stylesheet'>
+  <style>
+    :root{--cream:#f8f0e1;--coffee:#5a3a1a;--brown:#7a4a2a;--accent:#f59e0b;--text:#2b2b2b;--bg:#fff}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;font-family:Inter, system-ui, -apple-system, Arial; color:var(--text); background:var(--bg)}
+
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(1.2) blur(2px);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;max-width:1200px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;font-family:Lora, serif;font-weight:700;font-size:1.25rem;color:var(--coffee);text-decoration:none}
+    .brand svg{width:28px;height:28px}
+    .nav-links{display:flex;gap:20px}
+    .nav-links a{text-decoration:none;color:var(--text);padding:8px 12px;border-radius:6px}
+    .nav-links a:hover{background:rgba(0,0,0,.05)}
+    .hamburger{display:none;background:none;border:0;cursor:pointer}
+
+    /* Hero */
+    .hero{position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35))}
+    .hero-content{position:relative;z-index:1;padding:40px;max-width:900px}
+    .hero h1{font-family:Lora, serif;font-weight:700;font-size:3rem;line-height:1.1;margin:0;}
+    .cta{display:inline-block;margin-top:20px;padding:12px 20px;background:var(--accent);color:#fff;border-radius:8px;text-decoration:none;font-weight:700}
+
+    .section{padding:64px 0;opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease}
+    .section.in-view{opacity:1;transform:translateY(0)}
+
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    h2{font-family:Lora, serif;font-weight:700;font-size:2rem;margin:0 0 16px;color:var(--brown)}
+
+    .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+    .card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #eee;display:flex;flex-direction:column;gap:8px}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 16px rgba(0,0,0,.08)}
+    .card img{width:100%;height:160px;object-fit:cover;border-radius:10px}
+    .card h3{font-family:Lora, serif;margin:6px 0 4px;font-size:1.15rem}
+    .card p{margin:0;color:#555}
+
+    .testimonials{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+    .quote{background:#fff;border-radius:12px;border:1px solid #eee;padding:16px}
+
+    footer{background:#1b1b1b;color:#eaeaea;padding:40px 0;margin-top:40px}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:0 20px;max-width:1100px;margin:0 auto}
+    @media (min-width:800px){.footer-grid{grid-template-columns:2fr 1fr 1fr}}
+    .footer-column h4{color:#fff;font-family:Lora, serif;margin:0 0 10px}
+    .footer-column p,.footer-column a{color:#ddd;text-decoration:none}
+    .footer-copy{text-align:center;border-top:1px solid #333;margin-top:20px;padding-top:12px;color:#bbb}
+
+    form .input{width:100%;padding:12px;border-radius:6px;border:1px solid #ddd;font-family:inherit}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:6px;border:0;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+    .inline{display:flex;gap:10px;align-items:center}
+
+    @media (max-width:768px){
+      .nav-links{display:none}
+      .hamburger{display:inline-flex}
+      #mobileMenu{display:none}
+    }
+
+    /* Simple page load fade */
+    .page{animation:pageFade .6s ease both}
+    @keyframes pageFade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body class='page'>
+  <header>
+    <nav class='nav'>
+      <a class='brand' href='index.html'>
+        <svg width='28' height='28' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' aria-label='coffee'>
+          <path d='M6 5h6a4 4 0 0 1 4 4v6' stroke='currentColor' stroke-width='2'/>
+          <path d='M3 6h3a3 3 0 0 1 3 3v8' stroke='currentColor' stroke-width='2'/>
+          <path d='M6 3h6' stroke='currentColor' stroke-width='2'/>
+        </svg>
+        Aroma Cafe
+      </a>
+      <div class='nav-links' aria-label='Main navigation'>
+        <a href='index.html'>Home</a>
+        <a href='about.html'>About</a>
+        <a href='contact.html'>Contact</a>
+      </div>
+      <button class='hamburger' aria-label='Open menu' onclick='toggleMenu()'>
+        <svg width='26' height='26' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
+          <path d='M3 6h18'/><path d='M3 12h18'/><path d='M3 18h18'/>
+        </svg>
+      </button>
+    </nav>
+    <div id='mobileMenu' style='display:none;padding:0 20px 12px;'>
+      <a href='index.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>Home</a>
+      <a href='about.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>About</a>
+      <a href='contact.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>Contact</a>
+    </div>
+  </header>
+
+  <section class='hero' style="background-image: url('https://images.pexels.com/photos/5519415/pexels-photo-5519415.jpeg?auto=compress&cs=tinysrgb&h=650&w=940'); background-size:cover; background-position:center;" aria-label='Hero'>
+    <div class='hero-content'>
+      <h1>Where Every Sip Tells a Story.</h1>
+      <a href='about.html' class='cta'>Learn Our Story</a>
+    </div>
+  </section>
+
+  <main>
+    <section class='section container' id='featured'>
+      <h2>Featured Drinks</h2>
+      <div class='grid'>
+        <div class='card'>
+          <img src='https://pixabay.com/get/ga691e9316b53534937c89d65dc5c981cf04242b69fddc00749e99bc8ca0b4ea0640f1a65fe1ec544ba30be0788e9ee58de06aca4ddb048b5abdc895346aea08d_640.jpg' alt='Latte art close-up'>
+          <h3>Velvet Latte</h3>
+          <p>A silky latte with velvety microfoam and a hint of vanilla.</p>
+        </div>
+        <div class='card'>
+          <img src='https://images.unsplash.com/photo-1719840195557-b87e064766e4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3ODkyNDZ8MHwxfHNlYXJjaHw0fHxhJTIwYmVhdXRpZnVsbHklMjBjcmFmdGVkJTIwbGF0dGUlMjB3aXRoJTIwaW50cmljYXRlJTIwZm9hbSUyMGFydHxlbnwwfDB8fHwxNzU3MTU4NjI4fDA&ixlib=rb-4.1.0&q=80&w=1080' alt='Latte art close-up'>
+          <h3>Autumn Spice Cortado</h3>
+          <p>Espresso topped with warm cinnamon, nutmeg, and steamed milk.</p>
+        </div>
+        <div class='card'>
+          <img src='https://images.pexels.com/photos/11896535/pexels-photo-11896535.jpeg?auto=compress&cs=tinysrgb&h=650&w=940' alt='Latte art close-up'>
+          <h3>Hazelnut Mocha</h3>
+          <p>Rich chocolate, roasted hazelnut, and espresso finished with cream.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class='section container' id='testimonials'>
+      <h2>Testimonials</h2>
+      <div class='testimonials'>
+        <div class='quote'>
+          <p>“Aroma Cafe feels like a warm hug in a cup. The coffee is consistently excellent and the staff are wonderfully friendly.”</p>
+          <p style='margin-top:8px;font-weight:600’>— Priya R.</p>
+        </div>
+        <div class='quote'>
+          <p>“The cozy atmosphere and the aroma of beans make it my go-to spot for weekend mornings. Great beans, great people.”</p>
+          <p style='margin-top:8px;font-weight:600’>— Arjun M.</p>
+        </div>
+        <div class='quote'>
+          <p>“Amazing latte art and the passion for quality beans is evident in every cup.”</p>
+          <p style='margin-top:8px;font-weight:600’>— Sunita K.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class='footer-grid'>
+      <div class='footer-column'>
+        <h4>Aroma Cafe</h4>
+        <p style='color:#ccc;margin:6px 0 0'>123 Coffee Lane</p>
+        <p style='color:#ccc;margin:6px 0 0'>Nadargul, Telangana</p>
+        <p style='color:#ccc;margin:6px 0 0'>India</p>
+      </div>
+      <div class='footer-column'>
+        <h4>Quick Links</h4>
+        <ul style='list-style:none;padding:0;margin:0'>
+          <li><a href='index.html'>Home</a></li>
+          <li><a href='about.html'>About</a></li>
+          <li><a href='contact.html'>Contact</a></li>
+        </ul>
+      </div>
+      <div class='footer-column'>
+        <h4>Newsletter</h4>
+        <p style='color:#ccc;margin:6px 0 8px'>Get updates on new drinks and events.</p>
+        <form class='inline' action='#' method='post' onsubmit='return false;'>
+          <input class='input' type='email' placeholder='Email address' aria-label='Email address' required style='min-width:180px'>
+          <button class='btn' type='submit'>Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class='footer-copy'>© 2025 Aroma Cafe. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      var el=document.getElementById('mobileMenu');
+      if(!el){return}
+      el.style.display = (el.style.display==='block')? 'none':'block';
+    }
+    const sections=document.querySelectorAll('.section');
+    const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view')}});}, {threshold:0.15});
+    sections.forEach(sec=>obs.observe(sec));
+    window.addEventListener('load',()=>document.body.classList.add('loaded'));
+  </script>
+</body>
+</html>
