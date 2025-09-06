@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Contact Us - Aroma Cafe</title>
+  <meta name='description' content='Contact Aroma Cafe in Nadargul, Telangana. Reach us by phone or form with opening hours information.'>
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@400;700&display=swap' rel='stylesheet'>
+  <style>
+    :root{--cream:#f8f0e1;--coffee:#5a3a1a;--brown:#7a4a2a;--accent:#f59e0b;--text:#2b2b2b;--bg:#fff}
+    *{box-sizing:border-box} html,body{margin:0;padding:0;font-family:Inter, system-ui, -apple-system, Arial; color:var(--text); background:var(--bg)}
+    header{position:sticky;top:0;background:rgba(255,255,255,.95);backdrop-filter:saturate(1.2) blur(2px);z-index:50}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;max-width:1200px;margin:0 auto}
+    .brand{display:flex;align-items:center;gap:10px;font-family:Lora, serif;font-weight:700;font-size:1.25rem;color:var(--coffee);text-decoration:none}
+    .nav-links{display:flex;gap:20px}
+    .nav-links a{text-decoration:none;color:var(--text);padding:8px 12px;border-radius:6px}
+    .hamburger{display:none;background:none;border:0;cursor:pointer}
+
+    .hero{padding:40px 0;background:linear-gradient(to bottom right, #fff 0%, #f7efe0 60%)}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .two-col{display:grid;grid-template-columns:1fr;gap:28px;align-items:center}
+    @media (min-width:900px){.two-col{grid-template-columns:0.95fr 1.05fr}}
+    h2{font-family:Lora, serif;font-size:2rem;margin:0 0 12px;color:var(--brown)}
+    p{color:#555}
+    form{display:flex;flex-direction:column;gap:12px}
+    .input{padding:12px;border-radius:6px;border:1px solid #ddd;font-family:inherit}
+    .section{padding:48px 0}
+
+    footer{background:#1b1b1b;color:#eaeaea;padding:40px 0;margin-top:40px}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:20px;padding:0 20px;max-width:1100px;margin:0 auto}
+    @media (min-width:800px){.footer-grid{grid-template-columns:2fr 1fr 1fr}} 
+    .footer-column h4{color:#fff;margin:0 0 10px;font-family:Lora}
+    .footer-copy{text-align:center;border-top:1px solid #333;margin-top:20px;padding-top:12px;color:#bbb}
+  </style>
+</head>
+<body>
+  <header>
+    <nav class='nav'>
+      <a class='brand' href='index.html'>
+        Aroma Cafe
+      </a>
+      <div class='nav-links'>
+        <a href='index.html'>Home</a>
+        <a href='about.html'>About</a>
+        <a href='contact.html'>Contact</a>
+      </div>
+      <button class='hamburger' aria-label='Open menu' onclick='toggleMenu()'>
+        <svg width='26' height='26' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'>
+          <path d='M3 6h18'/><path d='M3 12h18'/><path d='M3 18h18'/>
+        </svg>
+      </button>
+    </nav>
+    <div id='mobileMenu' style='display:none;padding:0 20px 12px;'>
+      <a href='index.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>Home</a>
+      <a href='about.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>About</a>
+      <a href='contact.html' style='display:block;padding:8px 0;text-decoration:none;color:inherit'>Contact</a>
+    </div>
+  </header>
+
+  <section class='section container'>
+    <div class='two-col'>
+      <div>
+        <h2>Contact Aroma Cafe</h2>
+        <p>We'd love to hear from you. Reach us by phone or drop us a message using the form below.</p>
+        <p>Address: 123 Coffee Lane, Nadargul, Telangana, India</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Opening Hours: Mon-Sun 8:00 AM – 8:00 PM</p>
+      </div>
+      <div>
+        <form onsubmit='return false;'>
+          <label for='name' style='font-weight:600'>Name</label>
+          <input id='name' class='input' type='text' placeholder='Your name'>
+          <label for='email' style='font-weight:600'>Email</label>
+          <input id='email' class='input' type='email' placeholder='Your email'>
+          <label for='message' style='font-weight:600'>Message</label>
+          <textarea id='message' class='input' rows='4' placeholder='How can we help?' style='resize:vertical'></textarea>
+          <button class='btn' type='submit'>Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class='footer-grid'>
+      <div class='footer-column'>
+        <h4>Aroma Cafe</h4>
+        <p style='color:#ccc;margin:6px 0 0'>123 Coffee Lane</p>
+        <p style='color:#ccc;margin:6px 0 0'>Nadargul, Telangana</p>
+        <p style='color:#ccc;margin:6px 0 0'>India</p>
+      </div>
+      <div class='footer-column'>
+        <h4>Quick Links</h4>
+        <a href='index.html'>Home</a><br>
+        <a href='about.html'>About</a><br>
+        <a href='contact.html'>Contact</a>
+      </div>
+      <div class='footer-column'>
+        <h4>Newsletter</h4>
+        <p style='color:#ccc;margin:6px 0 8px'>Get updates on new drinks and events.</p>
+        <form class='inline' action='#' method='post' onsubmit='return false;'>
+          <input class='input' type='email' placeholder='Email address' aria-label='Email' required style='min-width:180px'>
+          <button class='btn' type='submit'>Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class='footer-copy'>© 2025 Aroma Cafe. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      var el=document.getElementById('mobileMenu');
+      if(!el){return}
+      el.style.display=(el.style.display==='block')?'none':'block';
+    }
+  </script>
+</body>
+</html>
